@@ -9,6 +9,7 @@ These are a collection of Python scripts to perform simulations and estimate pop
 * Comparing the log-likelihoods of estimates of *beta* (from the perato distribution) and *psi* for a given genotype frequency spectrum
 * Saving the posterior probability ditribution of *psi* using MCMC sampling
 * Performing coalescent simulations to generate genotype frequency spectrums in a population given a set of parameters
+
 ## Dependencies
 * Python 2.7.6
     * scipy
