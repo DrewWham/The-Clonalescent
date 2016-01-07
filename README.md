@@ -1,6 +1,14 @@
 # The-Clonalescent
+## user manual and guide
+--------
 ## Introduction
-These are a collection of Python scripts to perform simulations and estimate population-level parameters under a coalescent model of sexual and clonal reproduction. To visualize the results, R scripts are also included. 
+These are a collection of Python scripts to perform simulations and estimate population-level parameters under a coalescent model of sexual and clonal reproduction. To visualize the results, R scripts are also included. Broadly, these tools are designed to detect and simulate sex events in the genealogy of clonal populations using the frequency spectrum of genotypes. Specific uses include:
+* Inferring the effective rate of sex in populations
+* Estimating the expected number of unique individuals
+* Calculating the statistics *psi* and *D psi*
+* Comparing the log-likelihoods of estimates of *beta* (from the perato distribution) and *psi* for a given genotype frequency spectrum
+* Saving the posterior probability ditribution of *psi* using MCMC sampling
+* Performing coalescent simulations to generate genotype frequency spectrums in a population given a set of parameters
 ## Dependencies
 * Python 2.7.6
     * scipy
