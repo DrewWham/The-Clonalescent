@@ -25,7 +25,11 @@ These are a collection of Python scripts to perform simulations and estimate pop
 
 ## Detailed Usage
 ### Coalescent simulations
-To perform coalescent simulations, an input file containing three parameters is required: *Ne* - The effective population size, *Ge* - The number of unique genotypes, *n* - the number of individuals sampled. The input file contains exactly three lines in the order *Ne*, *Ge*, *n*. For example the following file:
+To perform coalescent simulations, use the `-S` option when running the program.
+
+`python clonalescent.py -i infile.txt -o outfile.sim -S`
+
+An input file containing three parameters is required: *Ne* - The effective population size, *Ge* - The number of unique genotypes, *n* - the number of individuals sampled. The input file contains exactly three lines in the order *Ne*, *Ge*, *n*. For example the following file:
 
 ```
    5000
