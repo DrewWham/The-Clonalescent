@@ -10,6 +10,8 @@ These are a collection of Python scripts to perform simulations and estimate pop
 * Saving the posterior probability ditribution of *psi* using MCMC sampling
 * Performing coalescent simulations to generate genotype frequency spectrums in a population given a set of parameters
 
+<img src="http://static1.squarespace.com/static/54ad6922e4b0ab38fefa18b1/t/5613cd02e4b0dc9c6cde8cee/1444138244362/?format=750w">
+
 ## Dependencies
 * Python 2.7.6
     * scipy
