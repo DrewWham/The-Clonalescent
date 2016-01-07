@@ -6,4 +6,7 @@ These are a collection of Python scripts to perform simulations and estimate pop
     * scipy
     * numpy
     * numdifftools
-Read.me for The_Clonalescent
+    * other required libraries should be included in most standard Python distributions. All dependencies can be installed using [pip][1]
+    *
+[1]:https://pypi.python.org/pypi/pip
+      
