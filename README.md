@@ -18,10 +18,17 @@ These are a collection of Python scripts to perform simulations and estimate pop
     * numpy
     * numdifftools
     * other required libraries should be included in most standard Python distributions. All dependencies can be installed using [pip][1]
-## Usage
+
+## Quick Start
 * run `python clonalescent.py -h` to view help and test that all dependencies are installed correctly 
 * run `python clonalescent.py` from the directory it is located and use options `-i` to specify the name & location of the input file and `-o` to specify the name & location of the program output.
-* for detailed usage, available analyses and instructions to visualize the output in R, please visit the wiki
+
+## Detailed Usage
+### Coalescent simulations
+To perform coalescent simulations, an input file containing three parameters is required: *Ne* - The effective population size, *Ng* - The number of unique genotypes, *n* - the number of individuals sampled. The input file contains exactly three lines in the order *Ne*, *Ng*, *n*. For example the following file:
+   5000
+   50
+   20
 
 ## Authors
 * Python scripts: Zach Fuller (zlf105@psu.edu)
