@@ -25,13 +25,23 @@ These are a collection of Python scripts to perform simulations and estimate pop
 
 ## Detailed Usage
 ### Coalescent simulations
-To perform coalescent simulations, an input file containing three parameters is required: *Ne* - The effective population size, *Ng* - The number of unique genotypes, *n* - the number of individuals sampled. The input file contains exactly three lines in the order *Ne*, *Ng*, *n*. For example the following file:
+To perform coalescent simulations, an input file containing three parameters is required: *Ne* - The effective population size, *Ge* - The number of unique genotypes, *n* - the number of individuals sampled. The input file contains exactly three lines in the order *Ne*, *Ge*, *n*. For example the following file:
 
 ```
    5000
    50
    20
 ```
+
+would contain the parameters to run a coalescent simulation of 20 individuals in a genealogy with an effective population size of 5000, 50 unique genotypes. Often, it is of interest to compare the results of simulations using a variety of different parameters. For instance, comparing the genotype frequency sepctrum produced from simulating a genealogy with 50 unique genotypes to simulating a genealogy with 500 unique genotypes. It is possible to specify multiple values for each input parameter and simulations will be performed for each combination. Each additional value is placed on the same line and separated with a tab. Again, for example the following file:
+
+```
+   5000
+   50 250   1500
+   20 100   500
+```
+
+would specify coalescent simulations using the following combinations of (*Ne*,*Ge*,*n*): (5000,50,20), (5000,50,100), (5000, 50, 500), (5000,250,20), (5000,250,100) ... (5000,1500,500).
 
 ## Authors
 * Python scripts: Zach Fuller (zlf105@psu.edu)
