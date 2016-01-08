@@ -281,7 +281,7 @@ def run_sims(Ne_L,n_L,Ng_L,n_sims,q,t_c):
                     output_line = ([".".join([str(n_v), str(g), str(J)]), "\t".join([str(x) for x in site_freq])])
                     #pi = calc_pairwise(site_freq)
                     #print n_v, g, J, pi
-                    print (("%s\n")%("\t".join(output_line)))
+                    #print (("%s\n")%("\t".join(output_line)))
                     
                     sim.append(output_line)
     q.put(sim)
@@ -294,7 +294,7 @@ def ne_parse(Ne, names):
         Ne_L = [int(x) for x in Ne_L]
     else:
         for x in xrange(len(names)):
-            Ne_L.append(Ne)
+            Ne_L.append(int(Ne))
     print "Ne values are:", Ne_L
     return Ne_L
 
@@ -460,7 +460,7 @@ def main():
             p.join()
         print "Joining together final simulation results"
         final_results=[item for sublist in process_results for item in sublist]
-        print final_results
+        #print final_results
 
         for i in final_results:
             output.write(("%s\n")%("\t".join(i)))
