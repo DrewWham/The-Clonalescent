@@ -6,7 +6,7 @@ These are a collection of Python scripts to perform simulations and estimate pop
 * Inferring the effective rate of sex in populations
 * Estimating the expected number of unique individuals
 * Calculating the statistics *psi* and *D psi*
-* Comparing the log-likelihoods of estimates of *beta* (from the perato distribution) and *psi* for a given genotype frequency spectrum
+* Comparing the log-likelihoods of estimates of *beta* (from the pareto distribution) and *psi* for a given genotype frequency spectrum
 * Saving the posterior probability ditribution of *psi* using MCMC sampling
 * Performing coalescent simulations to generate genotype frequency spectrums in a population given a set of parameters
 
@@ -21,7 +21,7 @@ These are a collection of Python scripts to perform simulations and estimate pop
 
 ## Quick Start
 * run `python clonalescent.py -h` to view help and test that all dependencies are installed correctly 
-* run `python clonalescent.py` from the directory it is located and use options `-i` to specify the name & location of the input file and `-o` to specify the name & location of the program output.
+* run `python clonalescent.py` from the directory it is located and use options `-i` to specify the name & location of the input file and `-o` to specify the name & location of the program output. A flag, either `-D`, `-P`, `-S` or `-L`, must be used to select the specific analysis for the program to use. These are explained in depth below.
 
 ## Detailed Usage
 ### Coalescent simulations
@@ -45,7 +45,14 @@ would contain the parameters to run a coalescent simulation of 20 individuals in
    20 100   500
 ```
 
-would specify coalescent simulations using the following combinations of (*Ne*,*Ge*,*n*): (5000,50,20), (5000,50,100), (5000, 50, 500), (5000,250,20), (5000,250,100) ... (5000,1500,500).
+would specify coalescent simulations using the following combinations of (*Ne*,*Ge*,*n*): (5000,50,20), (5000,50,100), (5000, 50, 500), (5000,250,20), (5000,250,100) ... (5000,1500,500). By default, the program will perform 10 coalescent simulations and use one CPU process. To change either default value, use the following options:
+
+```
+   -n, --n_sims      Number of coalescent simulations
+   -p, --processes   Number of CPU processes
+```
+
+The `-o` specifies the prefix to use for the file that the raw results of the simulations will be written to and will end in the extension `.sim`. Each line of the output file will start with an ID comprised of the input parameters followed by the simulated genotype frequency spectrum (GFS). The total number of lines will be equal to the total number of simulations performed. The `.sim` output file can be used in downstream analyses and visualization in the included R scripts. 
 
 ## Authors
 * Python scripts: Zach Fuller (zlf105@psu.edu)
