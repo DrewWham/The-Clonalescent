@@ -54,6 +54,25 @@ would specify coalescent simulations using the following combinations of (*Ne*,*
 
 The `-o` specifies the prefix to use for the file that the raw results of the simulations will be written to and will end in the extension `.sim`. Each line of the output file will start with an ID comprised of the input parameters followed by the simulated genotype frequency spectrum (GFS). The total number of lines will be equal to the total number of simulations performed. The `.sim` output file can be used in downstream analyses and visualization in the included R scripts. 
 
+###Estimating distribution *Psi* using MCMC sampling
+To generate the posterior probability distribution of the *Psi* statistic, use the `-P` option when running the program.
+
+`python clonalescent.py -i infile.txt -o outfile.mcmc -P`
+
+For each GFS included in the input file, this program will write the results of `-n` MCMC runs to `outfile.mcmc` and display the mean, variance and acceptance rate to standard output. The input file has the same format as the coalescent simulation output, where exactly one GFS and ID is contained per line in the following format:
+
+```
+ID GFS
+```
+
+Each character must be separated by a tab character and the ID cannot contain any white space. An example input file may appear as:
+
+```
+30.1.114 4  3  1  1  1  1  1  1  1  
+50.5.127 12 5  3  1
+```
+This file would include two ID's with their corresponding GFS. The GFS contains the counts of each unique genotype and is of length *S*, where *S* is the total number of unique genotypes observed. In this example, the sample ID 30.1.114 would have a total of 9 unique genotypes, with 4 individuals having genotype 1, 3 individuals having genotype 2 and the rest are singletons.   
+
 ## Authors
 * Python scripts: Zach Fuller (zlf105@psu.edu)
 * R scripts: Drew Wham (fcwham@gmail.com)
