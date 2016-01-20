@@ -122,8 +122,9 @@ ID Beta_slope Lkhd_beta Lkhd_psi
 ```
 
 ## Authors
+* Based on Wham, Fuller and LaJeunesse. (2015) The Coalescent Theory of Clonal Organisms. (In prep. but available shortly)
 * Python scripts: Zach Fuller (zlf105@psu.edu)
 * R scripts: Drew Wham (fcwham@gmail.com)
-* For reports of any bugs, questions or comments please email zlf105@psu.edu
+* For reports of any bugs, questions or comments please email zlf105@psu.edu (Python script) fcwham@gmail.com (Method and Theory)
 [1]:https://pypi.python.org/pypi/pip
       
