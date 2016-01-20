@@ -1,0 +1,5 @@
+library(ggplot)
+DPsi<-read.csv("DPsi.mcmc",header=FALSE,sep="\t")
+names(DPsi)<-c("DPsi","Site")
+DPsi.p<-ggplot( DPsi, aes(x=Site,y=DPsi,fill=Site))+ geom_violin(position="identity",alpha=0.7)+coord_flip()
+ggsave("DPsi.pdf",DPsi.p)
