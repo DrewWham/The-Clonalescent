@@ -1,5 +1,6 @@
+source(clonalescent.r)
 
-x <- scan("infile.test.txt", what="", sep="\n")
+x <- scan("out.sim", what="", sep="\n")
 y <- strsplit(x, "[[:space:]]+")
 names(y) <- sapply(y, `[[`, 1)
 y <- lapply(y, `[`, -1)
@@ -7,7 +8,7 @@ lapply(y,as.numeric)->y
 
 unlist(lapply(y,sum))->n
 unlist(lapply(y,length))->S
-as.numeric(sapply(strsplit(names(y),"[.]"),'[',1))->Ne
+as.numeric(sapply(strsplit(names(y),"[.]"),'[',3))->Ne
 as.numeric(sapply(strsplit(names(y),"[.]"),'[',2))->Ng
 
 ptm <- proc.time()
@@ -51,3 +52,5 @@ Ng
 
 
 apply(Data.tab[,c(5,1)],1,ENg.ap)->Data.tab$ENg
+
+write.csv(Data.tab,"SumStats.sim")
