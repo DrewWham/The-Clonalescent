@@ -228,7 +228,8 @@ def MCMC(initial, iter_num, burn_in, thin, S, J,Ne):
         old_loglik = -1 * theta_likelihood(float(old_alpha[0]), S, J)
         new_alpha = np.zeros([len(old_alpha)])
         for i in xrange(len(old_alpha)):
-            new_alpha[i] = rm.gauss(old_alpha[i], math.sqrt(-1*mat[0]))
+            #new_alpha[i] = rm.gauss(old_alpha[i], math.sqrt(-1*mat[0]))
+            new_alpha[i] = rm.gammavariate(old_alpha[i], 1)
         new_loglik = -1 * theta_likelihood(new_alpha, S, J)
 
         if (new_loglik > old_loglik):
