@@ -66,6 +66,8 @@ def get_options(defaults, usage, description='',epilog=''):
     
     return (options, args)
 
+
+
 #Read input file containing data for parameter estimation
 def read_input(infile):
     names, gfs = [], []
@@ -98,6 +100,8 @@ def ncr(n, r):
 
 #Get theta likelihood
 def theta_likelihood(theta, S, J):
+    S += prior_s
+    J += prior_j
     #If any of the values are 0 or negative return likelihood that will get rejected
     if theta <= 0 or S <= 0 or J <= 0:
         return 10000000
@@ -106,6 +110,7 @@ def theta_likelihood(theta, S, J):
 
 #Perform a one-dimensional optimizaiton of a defined function
 def optimize_theta(func, S, J):
+
     return optimize.fminbound(func,1,10000,args=(S, J))
 
 #Return a list containing the descendandts for a node
@@ -229,6 +234,7 @@ def MCMC(initial, iter_num, burn_in, thin, S, J,Ne):
         new_alpha = np.zeros([len(old_alpha)])
         for i in xrange(len(old_alpha)):
             new_alpha[i] = rm.gauss(old_alpha[i], math.sqrt(-1*mat[0]))
+            #print new_alpha[i], rm.gammavariate(old_alpha[i], math.sqrt(-1*mat[0]))
             #new_alpha[i] = rm.gammavariate(old_alpha[i], 1)
         new_loglik = -1 * theta_likelihood(new_alpha, S, J)
 
@@ -331,7 +337,10 @@ def main():
     burnin = options.burnin
     Sim = options.Sim
     Lklh = options.Lklh
-
+    global prior_s
+    global prior_j
+    prior_s, prior_j = 1,2
+    
     inputs = read_input(infile)
     names, gfs_L = inputs[0], inputs[1]
     
@@ -404,8 +413,9 @@ def main():
             burnin = int(n_sims * 0.1)
 
         for j, gfs in enumerate(gfs_L):
-            gfs.append(1)
-            gfs[gfs.index(max(gfs))] += 1
+            print gfs
+            #gfs.append(1)
+            #gfs[gfs.index(max(gfs))] += 1
             print "Beginning MCMC sampling of posterior distribution for ID", names[sim_count]
             n, S = float(sum(gfs)), float(len(gfs))
             initial = optimize_theta(theta_likelihood, S, n)
