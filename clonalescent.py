@@ -74,7 +74,7 @@ def read_input(infile):
     with open(infile, mode="rU") as fp:
         for line in fp:
             line_gfs = []
-            line = line.strip("\r\n").split("\t")
+            line = line.strip("\r\n").split()
             names.append(line[0])
             for x in line[1:]:
                 if x:
