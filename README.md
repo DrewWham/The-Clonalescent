@@ -101,14 +101,18 @@ To generate the distribution of the *D psi* statistic, use the `-D` option when 
 
 `python clonalescent.py -i infile.txt -o outfile.mcmc -D`
 
-The input file has the same format as used to estimate the distribution of *Psi*. The output file has a similar format as the distribution of *Psi* output, where each line contains the result of one simulation and all ID's included in the input are included in the same output. Similarly, a value of *Ne* may be included to provide an estimate of the population sex rate of the simulation in the second column of the output. The same options as the coalescent simulations may be used:
+The input file has the same format as used to estimate the distribution of *Psi*. The output file has a similar format as the distribution of *Psi* output, where each line contains the result of one simulation and all ID's included in the input are included in the same output. Similarly, a value of *Ne* may be included to provide an estimate of the sex rate of the simulation in the second column of the output. The same options as the coalescent simulations may be used:
 
 ```
    -n, --n_sims      Number of coalescent simulations
    -p, --processes   Number of CPU processes
 ```
 
-The output can be used for further analyses and visualiztion using the included R scripts.
+The output can be used for further analyses and visualiztion using the included R scripts.The output will contain two columns, with one value of *D Psi* per line in the following format:
+
+```
+DPsi   ID
+```
 
 ###Comparing likelihoods of *beta* and *Psi*
 It may be of interest to compare the likelihoods of the coalescent model included here (*Psi*) with the pareto distribution based statistic, *beta*, for a GFS. To compare these, use the `-L` option:
